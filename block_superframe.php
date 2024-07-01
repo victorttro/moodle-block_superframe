@@ -43,10 +43,8 @@ to register your plugin in the plugins database
 */
 
 /**
- * Class superframe minimal required block class.
- *
+ * Superframe block definition class.
  */
-
 class block_superframe extends block_base {
     /**
      * Initialize our block with a language string.
@@ -74,8 +72,11 @@ class block_superframe extends block_base {
         // OK let's add some content.
         $this->content = new stdClass();
         $this->content->footer = '';
-        $this->content->text = get_string('welcomeuser', 'block_superframe',
-                $USER);
+        $this->content->text = get_string('welcomeuser', 'block_superframe', $USER);
+
+        // Add a page break (horizontal rule) before the second message.
+        $this->content->text .= '<hr>';
+        $this->content->text .= get_string('message', 'block_superframe', $USER);
 
         return $this->content;
     }
@@ -85,11 +86,13 @@ class block_superframe extends block_base {
      * may not be added.
      */
     public function applicable_formats() {
-        return array('all' => false,
-                     'site' => true,
-                     'site-index' => true,
-                     'course-view' => true,
-                     'my' => true);
+        return [
+            'all' => false,
+            'site' => true,
+            'site-index' => true,
+            'course-view' => true,
+            'my' => true,
+        ];
     }
 
     /**
@@ -98,5 +101,4 @@ class block_superframe extends block_base {
     public function instance_allow_multiple() {
         return true;
     }
-
 }
