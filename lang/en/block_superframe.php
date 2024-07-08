@@ -35,5 +35,4 @@ $string['pluginname'] = 'Super frame';
 $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
 $string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
-
-
+$string['viewlink'] = 'View the link';
