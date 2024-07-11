@@ -55,10 +55,16 @@ if ($ADMIN->fulltree) {
         get_string('width_desc', 'block_superframe'),
         $defaultwidth, PARAM_INT));
 
-    // Page layout
-    $settings->add(new admin_setting_configselect('blocks/blocks_superframe',
-            get_string('pagelayout','blocks_superframe'),
-            get_string('pagelayout_desc','blocks_superframe')));
+   // The page layout options.
+   $options = array();
+   $options['course'] = get_string('course');
+   $options['popup'] = get_string('popup');
+
+   $settings->add(new admin_setting_configselect(
+       'block_superframe/pagelayout',
+       get_string('pagelayout', 'block_superframe'),
+       get_string('pagelayout_details', 'block_superframe'), 'course', $options)
+   );
 }
 
 
