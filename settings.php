@@ -17,54 +17,52 @@
 /**
  * TODO describe file settings
  *
- * @package    blocks_superframe
+ * @package    block_superframe
  * @copyright  2024 Victor Correia
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
+ if ($ADMIN->fulltree) {
+     // Default values
+     $defaulturl = 'https://quizlet.com/132695231/scatter/embed';
+     $defaultheight = '400';
+     $defaultwidth = '600';
 
-if ($ADMIN->fulltree) {
+     // Heading
+     $settings->add(new admin_setting_heading('sampleheader',
+              get_string('headerconfig', 'block_superframe'),
+              get_string('headerconfigdesc', 'block_superframe')));
 
-    //default values
-    $defaulturl = 'https://quizlet.com/132695231/scatter/embed';
-    $defaultheight = '400';
-    $defaultwidth = '600';
+     // The URL to be displayed
+     $settings->add(new admin_setting_configtext('block_superframe/url',
+             get_string('url', 'block_superframe'),
+             get_string('url_details', 'block_superframe'),
+             $defaulturl, PARAM_RAW));
 
-    //heading
-    $settings->add(new admin_setting_heading('sampleheader',
-             get_string('headerconfig', 'block_superframe'),
-             get_string('headerconfigdesc', 'block_superframe')));
+     // Height
+     $settings->add(new admin_setting_configtext('block_superframe/height',
+             get_string('height', 'block_superframe'),
+             get_string('height_desc', 'block_superframe'),
+             $defaultheight, PARAM_INT));
 
-    // The url to be displayed.
-    $settings->add(new admin_setting_configtext('block_superframe/url',
-            get_string('url', 'block_superframe'),
-            get_string('url_details', 'block_superframe'),
-            $defaulturl, PARAM_RAW));
+     // Width
+     $settings->add(new admin_setting_configtext('block_superframe/width',
+             get_string('width', 'block_superframe'),
+             get_string('width_desc', 'block_superframe'),
+             $defaultwidth, PARAM_INT));
 
-    // Height
-    $settings->add(new admin_setting_configtext('block_superframe/height',
-            get_string('height', 'block_superframe'),
-            get_string('height_desc', 'block_superframe'),
-            $defaultheight, PARAM_INT));
+     // The page layout options
+     $options = array();
+     $options['course'] = get_string('course');
+     $options['popup'] = get_string('popup');
 
-    //Width
-    $settings->add(new admin_setting_configtext('block_superframe/width',
-        get_string('width', 'block_superframe'),
-        get_string('width_desc', 'block_superframe'),
-        $defaultwidth, PARAM_INT));
-
-   // The page layout options.
-   $options = array();
-   $options['course'] = get_string('course');
-   $options['popup'] = get_string('popup');
-
-   $settings->add(new admin_setting_configselect(
-       'block_superframe/pagelayout',
-       get_string('pagelayout', 'block_superframe'),
-       get_string('pagelayout_details', 'block_superframe'), 'course', $options)
-   );
+     $settings->add(new admin_setting_configselect(
+         'block_superframe/pagelayout',
+         get_string('pagelayout', 'block_superframe'),
+         get_string('pagelayout_details', 'block_superframe'), 'course', $options)
+     );
 }
 
 

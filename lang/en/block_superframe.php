@@ -40,11 +40,13 @@ $string['viewlink'] = 'View the link';
 // Admin settings file.
 $string['headerconfig'] = 'Super frame settings';
 $string['headerconfigdesc'] = 'Settings for Super frame';
-$string['url'] = 'url';
-$string['url_details'] = 'Url to display';
+$string['url'] = 'URL';
+$string['url_details'] = 'URL to display';
 $string['height'] = 'Height';
 $string['height_desc'] = 'Height of the frame (px)';
 $string['width'] = 'Width';
 $string['width_desc'] = 'Width of the frame (px)';
 $string['pagelayout'] = 'Page layout';
 $string['pagelayout_details'] = 'Select a preferred page layout';
+$string['course'] = 'Course';
+$string['popup'] = 'Popup';
