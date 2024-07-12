@@ -30,23 +30,41 @@
  */
 
 // General.
-$string['message'] = 'I am a great developer';
-$string['pluginname'] = 'Super frame';
-$string['superframe:addinstance'] = 'Add a new Super frame block';
-$string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
-$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
-$string['viewlink'] = 'View the link';
+$string['course'] = 'Course';
 
-// Admin settings file.
+
 $string['headerconfig'] = 'Super frame settings';
 $string['headerconfigdesc'] = 'Settings for Super frame';
-$string['url'] = 'URL';
-$string['url_details'] = 'URL to display';
 $string['height'] = 'Height';
 $string['height_desc'] = 'Height of the frame (px)';
-$string['width'] = 'Width';
-$string['width_desc'] = 'Width of the frame (px)';
+$string['message'] = 'I am a great developer';
 $string['pagelayout'] = 'Page layout';
 $string['pagelayout_details'] = 'Select a preferred page layout';
-$string['course'] = 'Course';
+$string['pluginname'] = 'Super frame';
+
 $string['popup'] = 'Popup';
+
+$string['superframe:addinstance'] = 'Add a new Super frame block';
+$string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
+
+$string['url'] = 'URL';
+$string['url_details'] = 'URL to display';
+
+
+$string['viewlink'] = 'View the link';
+
+
+
+$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
+
+
+
+
+$string['width'] = 'Width';
+$string['width_desc'] = 'Width of the frame (px)';
+
+
+
+
+
+

@@ -98,6 +98,9 @@ class block_superframe extends block_base {
         ];
     }
 
+    /**
+     * Allow block configuration.
+     */
     public function has_config() {
         return true;
     }

@@ -24,37 +24,37 @@
 
 defined('MOODLE_INTERNAL') || die();
 
- if ($ADMIN->fulltree) {
-     // Default values
+if ($ADMIN->fulltree) {
+     // Default values ..
      $defaulturl = 'https://quizlet.com/132695231/scatter/embed';
      $defaultheight = '400';
      $defaultwidth = '600';
 
-     // Heading
+     // Heading ..
      $settings->add(new admin_setting_heading('sampleheader',
               get_string('headerconfig', 'block_superframe'),
               get_string('headerconfigdesc', 'block_superframe')));
 
-     // The URL to be displayed
+     // The URL to be displayed ..
      $settings->add(new admin_setting_configtext('block_superframe/url',
              get_string('url', 'block_superframe'),
              get_string('url_details', 'block_superframe'),
              $defaulturl, PARAM_RAW));
 
-     // Height
+     // Height ..
      $settings->add(new admin_setting_configtext('block_superframe/height',
              get_string('height', 'block_superframe'),
              get_string('height_desc', 'block_superframe'),
              $defaultheight, PARAM_INT));
 
-     // Width
+     // Width ..
      $settings->add(new admin_setting_configtext('block_superframe/width',
              get_string('width', 'block_superframe'),
              get_string('width_desc', 'block_superframe'),
              $defaultwidth, PARAM_INT));
 
-     // The page layout options
-     $options = array();
+     // The page layout options ..
+     $options = [];
      $options['course'] = get_string('course');
      $options['popup'] = get_string('popup');
 

@@ -13,43 +13,44 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
- * superframe view page
+ * TODO describe file view
  *
  * @package    block_superframe
- * @copyright  Daniel Neis <danielneis@gmail.com>
- * Modified for use in MoodleBites for Developers Level 1 by Richard Jones & Justin Hunt
+ * @copyright  2024 Victor Correia
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-require('../../config.php');
-$config = get_config('block_superframe');
-$PAGE->set_course($COURSE);
-$PAGE->set_url('/blocks/superframe/view.php');
-$PAGE->set_heading($SITE->fullname);
-$PAGE->set_pagelayout($config->pagelayout);
-$PAGE->set_title(get_string('pluginname', 'block_superframe'));
-$PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
-require_login();
 
-// Start output to browser.
-echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
-// Dummy content.\
+ require('../../config.php');
+ $config = get_config('block_superframe');
+ $PAGE->set_course($COURSE);
+ $PAGE->set_url('/blocks/superframe/view.php');
+ $PAGE->set_heading($SITE->fullname);
+ $PAGE->set_pagelayout($config->pagelayout);
+ $PAGE->set_title(get_string('pluginname', 'block_superframe'));
+ $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
+ require_login();
 
-echo '<br>' . fullname($USER) . '<br>';
+ // Start output to browser.
+ echo $OUTPUT->header();
+ echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
 
-$userpic = new user_picture($USER);
-$userpic->size = 50;
-echo '<br>' . $OUTPUT->render($userpic) . '<br>';
+ // Dummy content.
+ echo '<br>' . fullname($USER) . '<br>';
 
-$url = 'https://quizlet.com/132695231/scatter/embed';
-$width = '600px';
-$height = '400px';
-$attributes = ['src' => $config->url,
-               'width' => $config->width,
-               'height' => $config->height];
-echo html_writer::start_tag('iframe', $attributes);
-echo html_writer::end_tag('iframe');
+ $userpic = new user_picture($USER);
+ $userpic->size = 50;
+ echo '<br>' . $OUTPUT->render($userpic) . '<br>';
 
-//send footer out to browser
-echo $OUTPUT->footer();
+ $url = 'https://quizlet.com/132695231/scatter/embed';
+ $width = '600px';
+ $height = '400px';
+ $attributes = ['src' => $config->url,
+                'width' => $config->width,
+                'height' => $config->height];
+ echo html_writer::start_tag('iframe', $attributes);
+ echo html_writer::end_tag('iframe');
+
+ // Send footer out to browser.
+ echo $OUTPUT->footer();
