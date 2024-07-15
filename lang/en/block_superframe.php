@@ -46,9 +46,3 @@ $string['viewlink'] = 'View the link';
 $string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
 $string['width'] = 'Width';
 $string['width_desc'] = 'Width of the frame (px)';
-
-
-
-
-
-
