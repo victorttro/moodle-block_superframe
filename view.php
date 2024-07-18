@@ -24,8 +24,28 @@
 
  require('../../config.php');
  $blockid = required_param('blockid', PARAM_INT);
+ $courseid = required_param('courseid', PARAM_INT);
  $def_config = get_config('block_superframe');
- $PAGE->set_course($COURSE);
+
+
+ if ($courseid == $SITE->id) {
+    $context = context_system::instance();
+    $PAGE->set_context($context);
+ } else {
+    $course = $DB->get_record('course',['id' => $courseid],'*',MUST_EXIST);
+    $PAGE->set_course($course);
+    $context = $PAGE->context;
+ }
+ $PAGE->set_url('/blocks/superframe/view.php',
+    [
+        'blockid' => $blockid,
+        'courseid' => $courseid,
+        'size' => $size
+    ]);
+
+// check the users permissions to see the view page.
+require_capability('block/superframe:seeviewpage', $context);
+
  $PAGE->set_url('/blocks/superframe/view.php');
  $PAGE->set_heading($SITE->fullname);
  $PAGE->set_pagelayout($def_config->pagelayout);
