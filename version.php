@@ -32,8 +32,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_superframe';
-$plugin->version = 20240629017;
+$plugin->version = 20240629018;
 $plugin->requires = 2024042200.00;
 $plugin->supported = [404, 404];
-$plugin->release = '404.1.0';
+$plugin->release = '404.1.1';
 $plugin->maturity = MATURITY_STABLE;

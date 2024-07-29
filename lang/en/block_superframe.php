@@ -42,6 +42,7 @@ $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
 $string['superframe:seeviewpage'] = 'View Instance';
 $string['superframe:seeviewpagelink'] = 'View Instance Link';
+$string['superframe:frame'] = 'Frame';
 $string['url'] = 'URL';
 $string['url_details'] = 'URL to display';
 $string['viewlink'] = 'View the link';
@@ -53,4 +54,3 @@ $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
 $string['size'] = 'Size';
-

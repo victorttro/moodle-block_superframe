@@ -36,22 +36,21 @@
     $PAGE->set_course($course);
     $context = $PAGE->context;
  }
+
  $PAGE->set_url('/blocks/superframe/view.php',
     [
         'blockid' => $blockid,
         'courseid' => $courseid,
         'size' => $size
     ]);
-
-// check the users permissions to see the view page.
-require_capability('block/superframe:seeviewpage', $context);
-
- $PAGE->set_url('/blocks/superframe/view.php');
  $PAGE->set_heading($SITE->fullname);
  $PAGE->set_pagelayout($def_config->pagelayout);
  $PAGE->set_title(get_string('pluginname', 'block_superframe'));
  $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
  require_login();
+
+// check the users permissions to see the view page.
+require_capability('block/superframe:seeviewpage', $context);
 
  /* Get the instance configuration data from the database.
    It's stored as a base 64 encoded serialized string. */
@@ -69,6 +68,7 @@ if ($configdata) {
 
 // URL - comes either from instance or admin.
 $url = $config->url;
+
 // Let's set up the iframe attributes.
 switch ($config->size) {
     case 'custom':
@@ -89,25 +89,5 @@ switch ($config->size) {
         break;
 }
 
- // Start output to browser.
- echo $OUTPUT->header();
- echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
-
- // Dummy content.
- echo '<br>' . fullname($USER) . '<br>';
-
- $userpic = new user_picture($USER);
- $userpic->size = 50;
- echo '<br>' . $OUTPUT->render($userpic) . '<br>';
-
- $url = 'https://quizlet.com/132695231/scatter/embed';
- $width = '600px';
- $height = '400px';
- $attributes = ['src' => $url,
-                'width' => $width,
-                'height' => $height];
- echo html_writer::start_tag('iframe', $attributes);
- echo html_writer::end_tag('iframe');
-
- // Send footer out to browser.
- echo $OUTPUT->footer();
+$renderer = $PAGE->get_renderer('block_superframe');
+$renderer->display_view_page($url, $width, $height);
