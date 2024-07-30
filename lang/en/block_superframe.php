@@ -46,7 +46,8 @@ $string['superframe:frame'] = 'Frame';
 $string['url'] = 'URL';
 $string['url_details'] = 'URL to display';
 $string['viewlink'] = 'View the link';
-$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
+$string['welcome'] = 'Welcome';
+$string['welcomeuser'] ='Welcome {$a->firstname} {$a->lastname}';
 $string['width'] = 'Width';
 $string['width_desc'] = 'Width of the frame (px)';
 $string['custom'] = 'Custom';
@@ -54,3 +55,4 @@ $string['small'] = 'Small';
 $string['medium'] = 'Medium';
 $string['large'] = 'Large';
 $string['size'] = 'Size';
+

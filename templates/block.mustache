@@ -12,30 +12,21 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with Moodle.  If not, see http://www.gnu.org/licenses/.
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
+{{!
+    @template block_superframe/block
 
-    {{!
-    @template block_superframe/frame
-
-    This template renders a url in an iframe of given size.
+    TODO describe template block
 
     Example context (json):
     {
-        "fullname": Victor Correia Template",
-        "heading": "Superframe template",
-        "url": "http://www.moodlebites.com",
-        "height": "400",
-        "width": "600"
     }
 }}
 
-<div class="container">
-    <div class="jumbotron col-md-8 mx-auto text-center bg-primary text-white">
-        <h3>Welcome {{fullname}}</h3>
-        <h5>{{heading}}</h5>
-        <iframe src="{{url}}" height="{{height}}" width="{{width}}"></iframe>
-    </div>
+<div class="block_superframe">
+    <h3>{{welcome}}</h3>
+    {{#url}}
+    <p><a href="{{url}}">View course</p>
+    {{/url}}
 </div>
-
-

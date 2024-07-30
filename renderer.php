@@ -47,4 +47,21 @@
            // Finish the page.
            echo $this->output->footer();
        }
+
+    function fetch_block_content($instanceid, $courseid){
+        global $USER, $DB;
+
+        $data = new stdClass();
+
+        $data->url = new moodle_url('/course/view.php', ['id' => $courseid]);
+
+        $userdata = new stdClass();
+
+        $userdata->firstname = $USER->firstname;
+        $userdata->lastname = $USER->lastename;
+
+        $data->welcome = get_string('welcomeuser','block_superframe',$userdata);
+
+        return $this->render_from_template('block_superframe/block', $data);
+    }
    }
