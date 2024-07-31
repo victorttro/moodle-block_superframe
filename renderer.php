@@ -67,3 +67,4 @@
         return $this->render_from_template('block_superframe/block', $data);
     }
    }
+
