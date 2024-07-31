@@ -29,4 +29,9 @@
     {{#url}}
     <p><a href="{{url}}">View course</p>
     {{/url}}
+    {{#students}}
+    <ul class="list-group ml-0 mt-2">
+        <li class="list-group-item list-group-item-warning">{{.}}</li>
+    </ul>
+    {{/students}}
 </div>

@@ -48,20 +48,22 @@
            echo $this->output->footer();
        }
 
-    function fetch_block_content($instanceid, $courseid){
-        global $USER, $DB;
+    function fetch_block_content($blockid, $courseid) {
+        global $USER;
 
         $data = new stdClass();
 
-        $data->url = new moodle_url('/course/view.php', ['id' => $courseid]);
+        $data->welcome = get_string('welcomeuser','block_superframe',$USER);
 
-        $userdata = new stdClass();
+        $context = \context_block::instance($blockid);
 
-        $userdata->firstname = $USER->firstname;
-        $userdata->lastname = $USER->lastename;
+        //Check capability
+        if (has_capability('block/superframe:seeviewpagelink', $context)) {
+            $data->url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid,'courseid' => $courseid]);
+            $data->text = get_string('viewlink', 'block_superframe');
+        }
 
-        $data->welcome = get_string('welcomeuser','block_superframe',$userdata);
-
+        // Render data in a Mustache template
         return $this->render_from_template('block_superframe/block', $data);
     }
    }
