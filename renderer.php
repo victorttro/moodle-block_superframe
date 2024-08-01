@@ -63,8 +63,32 @@
             $data->text = get_string('viewlink', 'block_superframe');
         }
 
+         // List of course students.
+         $data->students = [];
+         $users = self::get_course_users($courseid);
+         foreach ($users as $user) {
+             $data->students[] = ''.$user->lastname.', '.$user->firstname;
+         }
+
         // Render data in a Mustache template
         return $this->render_from_template('block_superframe/block', $data);
+    }
+
+    private static function get_course_users($courseid) {
+        global $DB;
+
+        $sql = "SELECT u.id, u.firstname, u.lastname ";
+        $sql .= "FROM {course} c ";
+        $sql .= "JOIN {context} x ON c.id = x.instanceid ";
+        $sql .= "JOIN {role_assignments} r ON r.contextid = x.id ";
+        $sql .= "JOIN {user} u ON u.id = r.userid ";
+        $sql .= "WHERE c.id = :courseid ";
+        $sql .= "AND r.roleid = :roleid";
+
+        // In real world query should check users are not deleted/suspended.
+        $records = $DB->get_records_sql($sql, ['courseid' => $courseid, 'roleid' => 5]);
+
+        return $records;
     }
    }
 
