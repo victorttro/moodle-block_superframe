@@ -15,25 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * TODO describe file block_data
  *
- * @package   block_superframe
- * @copyright  Daniel Neis <danielneis@gmail.com>
- * @copyright  2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}.
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    block_superframe
+ * @copyright  2024 Victor Correia
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- * Modified for use in MoodleBites for Developers Level 1
- * by Richard Jones, Justin Hunt and G J Barnard.
- *
- * See: https://www.moodlebites.com/mod/page/view.php?id=24546
- */
-defined('MOODLE_INTERNAL') || die();
+ use \block_superframe\local\block_data;
 
-$plugin->component = 'block_superframe';
-$plugin->version = 20240629026;
-$plugin->requires = 2024042200.00;
-$plugin->supported = [404, 404];
-$plugin->release = '404.1.1';
-$plugin->maturity = MATURITY_STABLE;
+ require('../../config.php');
+
+ $PAGE->set_url('/blocks/superframe/block_data.php');
+ require_login();
+ $PAGE->set_course($COURSE);
+ $PAGE->set_heading($SITE->fullname);
+ $PAGE->set_pagelayout('popup');
+ $PAGE->set_title(get_string('pluginname', 'block_superframe'));
+
+ // Let's get some data about blocks.
+ $records = block_data::fetch_block_data();
+ $renderer = $PAGE->get_renderer('block_superframe');
+ echo $renderer->display_block_table($records);

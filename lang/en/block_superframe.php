@@ -30,19 +30,30 @@
  */
 
 // General.
+$string['blockid'] = 'Blockid';
+$string['blockname'] = 'Blockname';
+$string['catname'] = 'Catname';
+$string['course'] = 'Course';
+$string['custom'] = 'Custom';
 $string['headerconfig'] = 'Super frame settings';
 $string['headerconfigdesc'] = 'Settings for Super frame';
 $string['height'] = 'Height';
 $string['height_desc'] = 'Height of the frame (px)';
+$string['large'] = 'Large';
+$string['medium'] = 'Medium';
 $string['message'] = 'I am a great developer';
 $string['pagelayout'] = 'Page layout';
 $string['pagelayout_details'] = 'Select a preferred page layout';
 $string['pluginname'] = 'Super frame';
+$string['poptext'] = 'Poptext';
+$string['size'] = 'Size';
+$string['small'] = 'Small';
 $string['superframe:addinstance'] = 'Add a new Super frame block';
+$string['superframe:frame'] = 'Frame';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
 $string['superframe:seeviewpage'] = 'View Instance';
 $string['superframe:seeviewpagelink'] = 'View Instance Link';
-$string['superframe:frame'] = 'Frame';
+$string['tablecaption'] = 'Tablecaption';
 $string['url'] = 'URL';
 $string['url_details'] = 'URL to display';
 $string['viewlink'] = 'View the link';
@@ -50,9 +61,4 @@ $string['welcome'] = 'Welcome';
 $string['welcomeuser'] ='Welcome {$a->firstname} {$a->lastname}';
 $string['width'] = 'Width';
 $string['width_desc'] = 'Width of the frame (px)';
-$string['custom'] = 'Custom';
-$string['small'] = 'Small';
-$string['medium'] = 'Medium';
-$string['large'] = 'Large';
-$string['size'] = 'Size';
 

@@ -15,25 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * TODO describe file fetch_block_data
  *
- * @package   block_superframe
- * @copyright  Daniel Neis <danielneis@gmail.com>
- * @copyright  2022 G J Barnard - {@link http://moodle.org/user/profile.php?id=442195}.
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package    block_superframe
+ * @copyright  2024 Victor Correia
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- * Modified for use in MoodleBites for Developers Level 1
- * by Richard Jones, Justin Hunt and G J Barnard.
- *
- * See: https://www.moodlebites.com/mod/page/view.php?id=24546
- */
-defined('MOODLE_INTERNAL') || die();
+require('../../config.php');
 
-$plugin->component = 'block_superframe';
-$plugin->version = 20240629026;
-$plugin->requires = 2024042200.00;
-$plugin->supported = [404, 404];
-$plugin->release = '404.1.1';
-$plugin->maturity = MATURITY_STABLE;
+require_login();
+
+$url = new moodle_url('/blocks/superframe/fetch_block_data.php', []);
+$PAGE->set_url($url);
+$PAGE->set_context(context_system::instance());
+
+$PAGE->set_heading($SITE->fullname);
+echo $OUTPUT->header();
+echo $OUTPUT->footer();
