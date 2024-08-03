@@ -99,10 +99,10 @@
             // Build the data rows.
             foreach ($records as $record) {
                 $data = array();
-                $data[] = $record->id;
-                $data[] = $record->blockname;
-                $data[] = $record->shortname;
-                $data[] = $record->catname;
+                $data['id'] = $record->id;
+                $data['blockname'] = $record->blockname;
+                $data['shortname'] = $record->shortname;
+                $data['catname'] = $record->catname;
                 $table->tabledata[] = $data;
             }
 
