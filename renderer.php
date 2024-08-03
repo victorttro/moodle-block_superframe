@@ -67,6 +67,10 @@
         $data->popurl = new moodle_url('/blocks/superframe/block_data.php');
         $data->poptext = get_string('poptext', 'block_superframe');
 
+        //Add url to tablemanager
+        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
+        $data->tabletext = get_string('tabletext', 'block_superframe');
+
          // List of course students.
          $data->students = [];
          $users = self::get_course_users($courseid);
