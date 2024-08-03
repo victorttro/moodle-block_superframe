@@ -68,7 +68,7 @@
         $data->poptext = get_string('poptext', 'block_superframe');
 
         //Add url to tablemanager
-        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
+        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php',['courseid' => $courseid]);
         $data->tabletext = get_string('tabletext', 'block_superframe');
 
          // List of course students.

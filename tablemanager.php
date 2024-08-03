@@ -114,6 +114,7 @@ $actionitem = optional_param('id', 0, PARAM_INT);
 // Set course related variables.
 $PAGE->set_course($COURSE);
 $coursecontext = context_course::instance($COURSE->id);
+$courseid = $COURSE->id;
 
 // Set up the page.
 $PAGE->set_url('/blocks/superframe/tablemanager.php');
@@ -173,7 +174,11 @@ echo $renderer->heading($pagetitle.$tablename, 2);
 if ($action == "edit") {
     $alldata = $DB->get_records($tablename, ['id' => $actionitem], null, $fieldlist);
 } else { // Get all the records in the table.
-    $alldata = $DB->get_records($tablename, [], null, $fieldlist);
+    $filter = array();
+    if ($courseid != $SITE->id) {
+        $filter['id'] = $courseid;
+    }
+    $alldata = $DB->get_records($tablename, $filter, null, $fieldlist);
 }
 
 // Call the function at the top of the page to display an html table.
