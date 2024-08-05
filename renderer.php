@@ -24,7 +24,7 @@
 
  class block_superframe_renderer extends plugin_renderer_base {
 
-    function display_view_page($url, $width, $height) {
+    function display_view_page($url, $width, $height, $courseid) {
            global $USER;
 
            $data = new stdClass();
@@ -34,6 +34,7 @@
            $data->url = $url;
            $data->height = $height;
            $data->width = $width;
+           $data->returnlink = new moodle_url('/course/view.php', ['id' => $courseid]);
 
            // Add the user data.
            $data->fullname = fullname($USER);
@@ -68,7 +69,8 @@
         $data->poptext = get_string('poptext', 'block_superframe');
 
         //Add url to tablemanager
-        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php',['courseid' => $courseid]);
+        // With course id $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php',['courseid' => $courseid]);
+        $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
         $data->tabletext = get_string('tabletext', 'block_superframe');
 
          // List of course students.

@@ -41,7 +41,7 @@
     [
         'blockid' => $blockid,
         'courseid' => $courseid,
-        'size' => $size
+        'size' => $size,
     ]);
  $PAGE->set_heading($SITE->fullname);
  $PAGE->set_pagelayout($def_config->pagelayout);
@@ -90,4 +90,4 @@ switch ($config->size) {
 }
 
 $renderer = $PAGE->get_renderer('block_superframe');
-$renderer->display_view_page($url, $width, $height);
+$renderer->display_view_page($url, $width, $height, $courseid);
